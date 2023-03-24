@@ -26,12 +26,10 @@ metadata:
   name: {{ .name }}
   namespace: flux-system
 spec:
-  prune: true
   interval: {{ $.Values.globalValues.spec.interval }}
 {{if default $.Values.globalValues.helmDefault .helm }}
   chart:
     spec:
-      prune: true
       chart: {{ .chart }}
       sourceRef:
         kind: HelmRepository
