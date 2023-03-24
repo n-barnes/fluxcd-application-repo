@@ -31,6 +31,7 @@ spec:
 {{if default $.Values.globalValues.helmDefault .helm }}
   chart:
     spec:
+      prune: true
       chart: {{ .chart }}
       sourceRef:
         kind: HelmRepository
