@@ -10,9 +10,9 @@ metadata:
   name: {{ .name }}
   namespace: flux-system
 spec: 
+  interval: {{ $.Values.globalValues.spec.interval }}
   ref:
     branch: {{ $.Values.globalValues.spec.ref.branch }}
-  interval: {{ $.Values.globalValues.spec.interval }}
   url: {{ .repoURL}}
 ---
 {{if default $.Values.globalValues.helmDefault .helm }}
