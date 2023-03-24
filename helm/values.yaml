@@ -2,6 +2,7 @@ globalValues:
   valuesFile: values.yaml
   helmDefault: false
   spec:
+    prune: true
     ref:
       branch: main
     interval: 3m
