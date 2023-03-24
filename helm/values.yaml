@@ -1,0 +1,18 @@
+globalValues:
+  valuesFile: values.yaml
+  helmDefault: false
+  spec:
+    ref:
+      branch: main
+    interval: 3m
+
+applications:
+  Guestbook:
+    repoURL: https://github.com/n-barnes/app-of-apps
+    disable: false
+    name: guestbook
+    helm: false
+    targetNamespace: argocd-guestbook
+    path: guestbook
+
+  
