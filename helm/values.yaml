@@ -14,7 +14,7 @@ applications:
     name: ./guestbook
     helm: false
     targetNamespace: argocd-guestbook
-    path: guestbook
+    path: ./guestbook
     branch: main
 
   
