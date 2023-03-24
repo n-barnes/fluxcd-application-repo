@@ -1,0 +1,50 @@
+{{- range $app := .Values.applications -}}
+{{ if not .disable }}
+apiVersion: source.toolkit.fluxcd.io/v1beta2 
+{{if default $.Values.globalValues.helmDefault .helm }}
+kind: HelmRepository
+{{ else }}
+kind: GitRepository
+{{ end }}
+metadata:
+  name: {{ .name }}
+  namespace: flux-system
+spec: 
+  ref:
+    branch: {{ $.Values.globalValues.spec.ref.branch }}
+  interval: {{ $.Values.globalValues.spec.interval }}
+  url: {{ .repoURL}}
+---
+{{if default $.Values.globalValues.helmDefault .helm }}
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+{{ else }}
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+{{ end }}
+metadata:
+  name: {{ .name }}
+  namespace: {{ .targetNamespace }}
+spec:
+  prune: true
+  interval: {{ $.Values.globalValues.spec.interval }}
+{{if default $.Values.globalValues.helmDefault .helm }}
+  chart:
+    spec:
+      chart: {{ .chart }}
+      sourceRef:
+        kind: HelmRepository
+        name: {{ .name }}
+        namespace: {{ .targetNamespace }}
+      version: {{ .chartVersion }}
+{{ else }}
+  path: {{ .path }}
+  sourceRef: 
+    kind: GitRepository
+    name: {{ .name }}
+  targetNamespace: {{ .targetNamespace }}
+{{ end }}
+
+---
+{{- end }}
+{{- end }}
