@@ -24,7 +24,7 @@ kind: Kustomization
 {{ end }}
 metadata:
   name: {{ .name }}
-  namespace: {{ .targetNamespace }}
+  namespace: flux-system
 spec:
   prune: true
   interval: {{ $.Values.globalValues.spec.interval }}
