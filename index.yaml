@@ -6,7 +6,7 @@ entries:
     created: "2023-03-24T14:13:02.601949Z"
     description: A Helm chart for Kubernetes
     digest: 44441450a22288c8958feffbbb54d586f2794553c6f2353500e17ab82b608d2d
-    name: fluxcd-helm-test
+    name: flux-system-fluxcd-helm-test
     type: application
     urls:
     - https://n-barnes.github.io/fluxcd-application-repo/fluxcd-helm-test-0.1.0.tgz
