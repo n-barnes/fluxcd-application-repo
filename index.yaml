@@ -8,5 +8,7 @@ entries:
     digest: 44441450a22288c8958feffbbb54d586f2794553c6f2353500e17ab82b608d2d
     name: fluxcd-helm-test
     type: application
+    urls:
+    - https://n-barnes.github.io/fluxcd-application-repo/fluxcd-helm-test-1.1.2.tgz
     version: 1.1.2
 generated: "2023-03-24T14:13:02.598312Z"
