@@ -18,7 +18,7 @@ applications:
     branch: main
 
   helm-Guestbook:
-    repoURL: https://github.com/n-barnes/app-of-apps
+    repoURL: https://n-barnes.github.io/app-of-apps/
     disable: false
     name: helm-guestbook
     helm: true
