@@ -5,7 +5,7 @@ globalValues:
     prune: true
     ref:
       branch: main
-    interval: 3m
+    interval: 30s
 
 applications:
   Guestbook:
@@ -17,4 +17,13 @@ applications:
     path: ./guestbook
     branch: main
 
-  
+  helm-Guestbook:
+    repoURL: https://github.com/n-barnes/app-of-apps
+    disable: false
+    name: helm-guestbook
+    helm: true
+    targetNamespace: helm-guestbook
+    chart: helm-guestbook
+    chartVersion: 0.1.0
+    branch: main
+

@@ -26,9 +26,12 @@ metadata:
   name: {{ .name }}
   namespace: flux-system
 spec:
-  prune: true
   interval: {{ $.Values.globalValues.spec.interval }}
 {{if default $.Values.globalValues.helmDefault .helm }}
+  install:
+    timeout: 10m
+  upgrade:
+    timeout: 10m
   chart:
     spec:
       chart: {{ .chart }}
@@ -38,13 +41,13 @@ spec:
         namespace: {{ .targetNamespace }}
       version: {{ .chartVersion }}
 {{ else }}
+  prune: true
   path: {{ .path }}
   sourceRef: 
     kind: GitRepository
     name: {{ .name }}
   targetNamespace: {{ .targetNamespace }}
 {{ end }}
-
 ---
 {{- end }}
 {{- end }}
