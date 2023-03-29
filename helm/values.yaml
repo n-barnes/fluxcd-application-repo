@@ -22,7 +22,7 @@ applications:
     disable: false
     name: helm-guestbook
     helm: true
-    targetNamespace: helm-guestbook
+    targetNamespace: flux-system
     chart: helm-guestbook
     chartVersion: 0.1.0
     branch: main
